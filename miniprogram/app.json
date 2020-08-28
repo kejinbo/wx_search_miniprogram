@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#EDEDED",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarTitleText": "easy-search",
+    "navigationBarTextStyle": "black"
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

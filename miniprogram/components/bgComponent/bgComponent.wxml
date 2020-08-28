@@ -1,0 +1,4 @@
+<!--components/bgCompinents/bgComponent.wxml-->
+<view class="container">
+  <image class="bg-image" mode="aspectFill" src="../../images/bg.jpg" ></image>
+</view>

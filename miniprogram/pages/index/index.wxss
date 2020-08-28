@@ -1,0 +1,50 @@
+/**index.wxss**/
+.container{
+  padding-top: 16rpx;
+}
+.form-container input{
+  border: none;
+  outline: none;
+  height: 90rpx;
+  padding-left: 56rpx;
+  border-radius: 10rpx;
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 32rpx;
+  margin-bottom: 40rpx;
+}
+.input-placeholder{
+  color: #fff;
+  font-size: 32rpx;
+}
+/* 由于权重问题，直接操作 class 部分样式覆盖不了，提高权重即可 */
+button.search-btn{
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 90rpx;
+  border-radius: 10rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: rgba(7,193,96,.6);
+  padding: 0;
+}
+button.search-btn-hover{
+  background-color: rgba(7,193,96,.4);
+}
+.form-search-box{
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  top: 50%;
+  left: 10rpx;
+  display: inline-block;
+  height: 40rpx;
+  transform: translateY(-50%);
+}
+.my-mp-icon-sytle.icon--weui-icon{
+  vertical-align: top;
+}
