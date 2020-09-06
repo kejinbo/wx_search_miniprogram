@@ -5,7 +5,16 @@
       <input placeholder-class="input-placeholder" placeholder="请输入需要搜索的关键字" type="text" value="{{searchValue}}" bindinput="onChange" />
       <mp-icon extClass="my-mp-icon-sytle" icon="search" color="#fff" class="search-icon"></mp-icon>
     </view>
-    <button class="search-btn" data-immediate="true" hover-class="search-btn-hover" bindtap="searchClick">点击搜索</button>
+    <button class="search-btn" loading="{{searchLoading}}" data-immediate="true" hover-class="search-btn-hover" bindtap="searchClick">点击搜索</button>
+  </view>
+  <view class="scroll-view">
+    <scroll-view class="scroll-box" bindscrolltolower="loadMore" scroll-y="true">
+     <view style="height: 300rpx">aa</view>
+     <view style="height: 300rpx">aa</view>
+     <view style="height: 300rpx">aa</view>
+     <view style="height: 300rpx">aa</view>
+     <view style="height: 300rpx">aa</view>
+    </scroll-view>
   </view>
   <bg-component></bg-component>
 </view>

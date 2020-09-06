@@ -4,7 +4,8 @@ const app = getApp()
 Page({
   data: {
     searchValue: '',
-    timeout: null
+    timeout: null,
+    searchLoading: false
   },
   onLoad: function() {
   },
@@ -39,20 +40,49 @@ Page({
     }
   },
   getInfo(){
+    let self = this;
+    self.searchBtnUseStatus(true)
     wx.request({
-      url: 'https://pi.roothk.top/health/product/search',
+      url: 'https://pi.roothk.top/health/api/food/search',
       method: 'GET',
       data:{
-        page: 0,
-        size: 20,
-        search: this.data.searchValue
+        pageNumber: 0,
+        pageSize: 20,
+        search: self.data.searchValue
       },
       success(res){
-        console.log(res)
+        if(res.statusCode == 200){
+
+        } else {
+          wx.showToast({
+            title: res.data.message || '服务器错误',
+            icon: 'none'
+          })
+        }
       },
       fail(err){
-        console.log(err);
+        wx.showToast({
+          title: err.message || '服务器错误',
+          icon: 'none'
+        })
+      },
+      complete(err){
+        self.searchBtnUseStatus(false)
       }
     })
+  },
+  searchBtnUseStatus(bool = true){
+    if(!bool){
+      this.setData({
+        searchLoading: false
+      });
+    } else {
+      this.setData({
+        searchLoading: true
+      });
+    }
+  },
+  loadMore(e){
+    console.log(e)
   }
 })
