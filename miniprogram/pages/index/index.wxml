@@ -1,34 +1,35 @@
 <!--index.wxml-->
 <view class="container">
-  <view hidden="{{showList}}" class="form-container" animation="{{formAnimation}}">
-    <view class="form-search-box">
-      <input placeholder-class="input-placeholder" placeholder="请输入需要搜索的关键字" type="text" value="{{searchValue}}"
-        bindinput="onChange" />
-      <mp-icon extClass="my-mp-icon-sytle" icon="search" color="#fff" class="search-icon"></mp-icon>
-    </view>
-    <button class="search-btn" loading="{{searchLoading}}" data-immediate="true" hover-class="search-btn-hover"
-      bindtap="searchClick">点击搜索</button>
-  </view>
-  <view hidden="{{!showList}}" class="scroll-view">
-    <view class="list-box" animation="{{listViewAnimation}}">
-      <view class="scroll-box_header">
-        <view class="scroll-box_header_container">
-          <view class="scroll-box_title">
-            <text>搜索结果</text>
-          </view>
-          <view class="scroll-box_close" bindtap="closeView">
-            <mp-icon extClass="my-mp-icon-sytle" icon="close" color="#fff"></mp-icon>
-          </view>
+	<view hidden="{{showList}}" class="form-container" animation="{{formAnimation}}">
+		<view class="form-search-box">
+			<input placeholder-class="input-placeholder" placeholder="请输入需要搜索的关键字" type="text" value="{{searchValue}}" bindinput="onChange" />
+			<mp-icon extClass="my-mp-icon-sytle" icon="search" color="#fff" class="search-icon"></mp-icon>
+		</view>
+		<button class="search-btn" loading="{{searchLoading}}" data-immediate="true" hover-class="search-btn-hover" bindtap="searchClick">点击搜索</button>
+	</view>
+	<view hidden="{{!showList}}" class="scroll-view">
+		<view class="list-box" animation="{{listViewAnimation}}">
+			<view class="scroll-box_header">
+				<view class="scroll-box_header_container">
+					<view class="scroll-box_title">
+						<text>搜索结果</text>
+					</view>
+					<view class="scroll-box_close" bindtap="closeView">
+						<mp-icon extClass="my-mp-icon-sytle" icon="close" color="#fff"></mp-icon>
+					</view>
+				</view>
+			</view>
+			<scroll-view class="scroll-box" bindscrolltolower="loadMore" scroll-y="true">
+				<view class="scroll-box_content__item" wx:for="{{list}}" wx:key="index">
+					<view><text>名称：</text><text>{{item.name}}</text></view>
+					<view><text>GI值：</text><text>{{item.giTr ? 'Tr' : item.giFull}}</text></view>
+					<view><text>嘌呤：</text><text>{{item.purineTr ? 'Tr' : item.purineFull}}</text></view>
+				</view>
+        <view wx:if="{{totalPage > 1}}" class="no-more-info">
+          {{isMore ? "加载中...": "暂无数据~"}}
         </view>
-      </view>
-    <scroll-view class="scroll-box" bindscrolltolower="loadMore" scroll-y="true">
-      <view class="scroll-box_content__item" wx:for="{{list}}" wx:key="index">
-          <view>名称：<text>{{"咻咻咻"}}</text></view>
-          <view>GI值：<text>{{"咻咻咻"}}</text></view>
-          <view>嘌呤：<text>{{"咻咻咻"}}</text></view>
-        </view>
-    </scroll-view>
-    </view>
-  </view>
-  <bg-component></bg-component>
+			</scroll-view>
+		</view>
+	</view>
+	<bg-component></bg-component>
 </view>

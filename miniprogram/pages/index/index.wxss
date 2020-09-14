@@ -133,13 +133,25 @@ button.search-btn-hover {
 }
 
 .scroll-box_content__item view {
-  height: 60rpx;
-  line-height: 60rpx;
+  padding: 12rpx 0;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
   color: #fff;
   font-size: 28rpx;
+  display: flex;
+  align-items: baseline;
 }
 
-.scroll-box_content__item view text {
+.scroll-box_content__item view text:first-child{
+  width: 90rpx;
+}
+.scroll-box_content__item view text:last-child{
+  flex: 1;
   color: #f6e1c9;
+}
+
+.no-more-info{
+  font-size: 28rpx;
+  color: #f6e1c9;
+  line-height: 45rpx;
+  text-align: center;
 }
