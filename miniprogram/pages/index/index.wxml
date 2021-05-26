@@ -20,7 +20,7 @@
 				</view>
 			</view>
 			<scroll-view class="scroll-box" bindscrolltolower="loadMore" scroll-y="true">
-				<view class="scroll-box_content__item" wx:for="{{list}}" wx:key="index">
+				<view class="scroll-box_content__item {{item.selectStatus ? 'selected' : ''}}" wx:for="{{list}}" wx:key="index" data-food="{{item}}" bindtap="selectFood">
 					<view><text>名称：</text><text>{{item.name}}</text></view>
 					<view><text>GI值：</text><text>{{item.giTr ? 'Tr' : item.giFull}}</text></view>
 					<view><text>嘌呤：</text><text>{{item.purineTr ? 'Tr' : item.purineFull}}</text></view>
@@ -29,6 +29,11 @@
           {{isMore ? "加载中...": "暂无数据~"}}
         </view>
 			</scroll-view>
+			<view class="scroll-box_foot">
+				<button disabled="{{selectFoodList.length < 1}}" class="collect-btn" loading="{{searchLoading}}" hover-class="search-btn-hover" bindtap="collectClick">
+					{{'加入'+selectFoodList.length+'条结果到收藏'}}
+				</button>
+			</view>
 		</view>
 	</view>
 	<bg-component></bg-component>

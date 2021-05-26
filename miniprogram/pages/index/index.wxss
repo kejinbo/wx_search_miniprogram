@@ -31,7 +31,8 @@ page {
 }
 
 /* 由于权重问题，直接操作 class 部分样式覆盖不了，提高权重即可 */
-button.search-btn {
+button.search-btn,
+button.collect-btn {
   display: block;
   width: 100%;
   outline: none;
@@ -44,9 +45,16 @@ button.search-btn {
   background-color: rgba(7, 193, 96, .6);
   padding: 0;
 }
+button.collect-btn{
+  height: 80rpx;
+  line-height: 80rpx;
+}
 
 button.search-btn:not([size='mini']) {
   width: 100%;
+}
+button.collect-btn:not([size='mini']) {
+  min-height: 20px;
 }
 
 button.search-btn-hover {
@@ -76,7 +84,7 @@ button.search-btn-hover {
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 80rpx 30rpx;
+  padding: 60rpx 30rpx;
 }
 
 .list-box {
@@ -95,17 +103,21 @@ button.search-btn-hover {
   height: 100%;
   box-sizing: border-box;
   border-radius: 10rpx;
-  padding: 0 20rpx 20rpx;
-  padding-top: 80rpx;
+  padding: 80rpx 20rpx 100rpx;
 }
 
-.scroll-box_header {
+.scroll-box_header,
+.scroll-box_foot {
   position: absolute;
   height: 80rpx;
   width: 100%;
   box-sizing: border-box;
   padding: 0 20rpx;
   z-index: 99;
+}
+
+.scroll-box_foot {
+  bottom: 10rpx;
 }
 
 .scroll-box_header_container {
@@ -126,6 +138,7 @@ button.search-btn-hover {
 
 .scroll-box_content__item {
   margin-bottom: 50rpx;
+  border-radius: 10rpx;
 }
 
 .scroll-box_content__item:last-child {
@@ -146,12 +159,15 @@ button.search-btn-hover {
 }
 .scroll-box_content__item view text:last-child{
   flex: 1;
-  color: #f6e1c9;
+  color: #ffb65f;
+}
+.scroll-box_content__item.selected{
+  background-color: #9e9e9e;
 }
 
 .no-more-info{
   font-size: 28rpx;
-  color: #f6e1c9;
+  color: #463d31;
   line-height: 45rpx;
   text-align: center;
 }

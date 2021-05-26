@@ -13,7 +13,8 @@ Page({
     pageNumber: 1, //当前页数
     pageSize: 10, //页大小
     totalPage: 0, //总页数
-    isMore: false
+    isMore: false,
+    selectFoodList: [], // 选中的食物列表
   },
   onLoad: function () {},
   onShow() {
@@ -74,6 +75,11 @@ Page({
           if (res.data.content.length > 0) {
             self.hideAnimationFn('formAnimation')
             self.showAnimationFn('listViewAnimation')
+            // 遍历数组，给每一项添加一个选中状态
+            self.data.list = self.data.list.map((item) => {
+              item.selectStatus = false;
+              return item
+            });
             self.setData({
               list: self.data.list.concat(res.data.content || []),
               totalPage: res.data.totalPages
@@ -125,6 +131,35 @@ Page({
         isMore: false
       })
     }
+  },
+  // 选中食物
+  selectFood(e){
+    const { food: currentFood } = e.currentTarget.dataset;
+    const { list, selectFoodList } = this.data;
+    const currentIndex = list.findIndex(item => item.id === currentFood.id);
+    const currentSelectIndex = selectFoodList.findIndex(item => item.id === currentFood.id);
+    list[currentIndex].selectStatus = !list[currentIndex].selectStatus;
+    if(currentSelectIndex > -1){
+      selectFoodList.splice(currentSelectIndex, 1); //删除选中的元素
+    } else {
+      selectFoodList.push(currentFood);
+    }
+    this.setData({
+      list,
+      selectFoodList
+    })
+  },
+  // 加入收藏
+  collectClick(){
+    const { selectFoodList } = this.data
+    wx.cloud.callFunction({
+      name: 'addFoodCollect',
+      data: {
+        selectData: JSON.stringify(selectFoodList)
+      }
+    }).then(res => {
+      console.log(res);
+    })
   },
   closeView() {
     this.hideAnimationFn('listViewAnimation')
