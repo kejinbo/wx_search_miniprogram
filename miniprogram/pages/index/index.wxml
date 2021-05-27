@@ -6,6 +6,7 @@
 			<mp-icon extClass="my-mp-icon-sytle" icon="search" color="#fff" class="search-icon"></mp-icon>
 		</view>
 		<button class="search-btn" loading="{{searchLoading}}" data-immediate="true" hover-class="search-btn-hover" bindtap="searchClick">点击搜索</button>
+		<button class="search-btn" hover-class="search-btn-hover" bindtap="showCollect">查看收藏</button>
 	</view>
 	<view hidden="{{!showList}}" class="scroll-view">
 		<view class="list-box" animation="{{listViewAnimation}}">

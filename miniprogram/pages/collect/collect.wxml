@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="scroll-box_content__item {{item.selectStatus ? 'selected' : ''}}" wx:for="{{list}}" wx:key="index"
+    data-food="{{item}}" bindtap="selectFood">
+    <view><text>名称：</text><text>{{item.name}}</text></view>
+    <view><text>GI值：</text><text>{{item.giTr ? 'Tr' : item.giFull}}</text></view>
+    <view><text>嘌呤：</text><text>{{item.purineTr ? 'Tr' : item.purineFull}}</text></view>
+  </view>
+  <bg-component></bg-component>
+</view>

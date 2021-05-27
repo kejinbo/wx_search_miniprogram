@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
+    "bg-component": "../../components/bgComponent/bgComponent",
+    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
+    "mp-loading": "/miniprogram_npm/weui-miniprogram/loading/loading"
+  }
+}

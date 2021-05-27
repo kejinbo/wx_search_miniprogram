@@ -31,6 +31,9 @@ page {
 }
 
 /* 由于权重问题，直接操作 class 部分样式覆盖不了，提高权重即可 */
+button + button {
+  margin-top: 20rpx;
+}
 button.search-btn,
 button.collect-btn {
   display: block;

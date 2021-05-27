@@ -158,7 +158,17 @@ Page({
         selectData: JSON.stringify(selectFoodList)
       }
     }).then(res => {
-      console.log(res);
+      if(res.result.returnCode === 0){
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: res.result.returnMsg || "收藏失败",
+          icon: 'none'
+        })
+      }
     })
   },
   closeView() {
@@ -199,5 +209,10 @@ Page({
         showList: target === 'formAnimation'
       })
     }, 200)
+  },
+  showCollect(){
+    wx.navigateTo({
+      url: '../collect/collect',
+    })
   }
 })
